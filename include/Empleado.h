@@ -10,24 +10,18 @@ public:
     Empleado(string nombre, string apellido, string direccion, string fechaNacimiento, char sexo);
 
     const string &getNombre() const;
-
     const string &getApellido() const;
-
     const string &getDireccion() const;
-
     const string &getFechaNacimiento() const;
-
     const string &getEmpresa() const;
-
-    char getSexo() const;
-
+    const char getSexo() const;
+    const void mostrarInformacion() const;
 
     void setNombre(string nombre);
     void setApellido(string apellido);
     void setDireccion(string direccion);
     void setFechaNacimiento(string fechaNacimiento);
     void setSexo(char sexo);
-    void mostrarInformacion();
 
 private:
     string nombre;

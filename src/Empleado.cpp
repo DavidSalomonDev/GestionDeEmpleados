@@ -32,7 +32,7 @@ void Empleado::setSexo(char s) {
     sexo = s;
 }
 
-void Empleado::mostrarInformacion() {
+const void Empleado::mostrarInformacion() const {
     cout << "Nombre completo: " << nombre << " " << apellido << endl;
     cout << "Dirección: " << direccion << endl;
     cout << "Fecha de nacimiento: " << fechaNacimiento << endl;
@@ -59,6 +59,6 @@ const string &Empleado::getEmpresa() const {
     return empresa;
 }
 
-char Empleado::getSexo() const {
+const char Empleado::getSexo() const {
     return sexo;
 }
