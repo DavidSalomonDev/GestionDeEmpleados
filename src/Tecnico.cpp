@@ -10,4 +10,10 @@ Tecnico::Tecnico(string nombre, string apellido, string direccion, string fechaN
 
     cargo = "Técnico";
     salarioTotal = 350;
+
+    calcularISSSLaboral();
+    calcularISSSPatronal();
+    calcularAFPLaboral();
+    calcularAFPPatronal();
+    calcularISR();
 }

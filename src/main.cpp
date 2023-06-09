@@ -34,10 +34,11 @@ int main() {
     lista.addEmpleadosFromFile(filePath);
 
 
-    lista.getEmpleados();
-    cout << lista.size() << endl;
 
-    lista.getEmpleadosByRole();
+    cout << lista.getEmpleados()[10].getNombre();
+    cout << lista.getEmpleados()[10].getApellido();
+    cout << lista.getEmpleados()[10].getSalarioTotal();
+    cout << lista.getEmpleados()[10].getAfpLaboral();
 
 
     return 0;

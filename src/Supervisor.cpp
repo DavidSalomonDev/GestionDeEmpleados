@@ -11,5 +11,11 @@ Supervisor::Supervisor(string nombre, string apellido, string direccion, string 
 
     cargo = "Supervisor";
     salarioTotal = 750;
+
+    calcularISSSLaboral();
+    calcularISSSPatronal();
+    calcularAFPLaboral();
+    calcularAFPPatronal();
+    calcularISR();
 }
 

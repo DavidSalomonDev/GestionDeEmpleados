@@ -16,7 +16,9 @@ public:
 
     void getEmpleadoByFullName(string nombre, string apellido);
 
-    void getEmpleados();
+    vector<Empleado> getEmpleados();
+
+    void getEmpleadosInfo();
 
     void getEmpleadosByRole();
 

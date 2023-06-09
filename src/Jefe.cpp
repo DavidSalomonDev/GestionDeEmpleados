@@ -10,4 +10,10 @@ Jefe::Jefe(string nombre, string apellido, string direccion, string fechaNacimie
 
     cargo = "Jefe de área";
     salarioTotal = 1500;
+
+    calcularISSSLaboral();
+    calcularISSSPatronal();
+    calcularAFPLaboral();
+    calcularAFPPatronal();
+    calcularISR();
 }

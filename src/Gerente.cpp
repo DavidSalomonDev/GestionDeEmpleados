@@ -12,4 +12,10 @@ Gerente::Gerente(string nombre, string apellido, string direccion, string fechaN
     cargo = "Gerente";
     salarioTotal = 5000;
 
+    calcularISSSLaboral();
+    calcularISSSPatronal();
+    calcularAFPLaboral();
+    calcularAFPPatronal();
+    calcularISR();
+
 }

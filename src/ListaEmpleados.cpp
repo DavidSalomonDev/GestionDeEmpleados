@@ -92,7 +92,11 @@ void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido) {
     cout << "No se encontró ningún empleado con ese nombre y apellido." << endl;
 }
 
-void ListaEmpleados::getEmpleados() {
+vector<Empleado> ListaEmpleados::getEmpleados(){
+    return this->empleados;
+}
+
+void ListaEmpleados::getEmpleadosInfo() {
     for (size_t i = 0; i < empleados.size(); i++) {
         cout << "======================================" << endl;
         cout << "Empleado No. " << i + 1 << ":" << endl;
