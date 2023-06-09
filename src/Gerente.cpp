@@ -8,12 +8,8 @@ Gerente::Gerente(string nombre, string apellido, string direccion, string fechaN
     setDireccion(direccion);
     setFechaNacimiento(fechaNacimiento);
     setSexo(sexo);
-}
 
-const string &Gerente::getCargo() const {
-    return cargo;
-}
+    cargo = "Gerente";
+    salarioTotal = 5000;
 
-const double &Gerente::getSalario() const {
-    return salario;
 }

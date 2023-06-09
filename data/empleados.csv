@@ -1,0 +1,26 @@
+numero,nombre,apellido,direccion,fechaNacimiento,sexo,cargo
+1,Carlos,Rodriguez,San Salvador,1990-05-15,M,Gerente
+2,Laura,Hernandez,Santa Tecla,1988-07-22,F,Gerente
+3,Juan,Gonzalez,Apopa,1992-03-10,M,Jefe de área
+4,Maria,Lopez,Soyapango,1985-09-22,F,Jefe de área
+5,Andres,Perez,San Miguel,1991-12-03,M,Jefe de área
+6,Daniel,Torres,La Libertad,1990-08-09,M,Supervisor
+7,Ana,Ramirez,Santa Ana,1987-08-09,F,Supervisor
+8,David,Martinez,Apopa,1996-02-14,M,Supervisor
+9,Sofia,Flores,San Salvador,1994-10-06,F,Supervisor
+10,Roberto,Gutierrez,San Miguel,1989-04-25,M,Supervisor
+11,Luis,Garcia,Soyapango,1986-02-14,M,Técnico
+12,María,Hernandez,San Miguel,1995-01-30,F,Técnico
+13,Pedro,Santos,Santa Tecla,1989-06-20,M,Técnico
+14,Carolina,Mendoza,La Libertad,1992-09-14,F,Técnico
+15,Jorge,Pérez,San Salvador,1991-05-05,M,Técnico
+16,María,Lopez,Apopa,1990-12-26,F,Técnico
+17,Roberto,Garcia,San Miguel,1993-07-15,M,Técnico
+18,Laura,Rodriguez,Santa Ana,1992-03-28,F,Técnico
+19,David,Martinez,Soyapango,1995-11-07,M,Técnico
+20,Sofia,Flores,San Salvador,1994-09-18,F,Técnico
+21,Alejandro,Gutierrez,San Miguel,1991-06-19,M,Técnico
+22,Maria,Hernandez,La Libertad,1990-03-22,F,Técnico
+23,Carlos,Santos,Santa Tecla,1993-08-07,M,Técnico
+24,Diana,Pérez,San Salvador,1992-12-16,F,Técnico
+25,Luis,Garcia,Apopa,1991-11-29,M,Técnico

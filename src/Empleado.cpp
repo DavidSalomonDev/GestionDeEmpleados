@@ -37,6 +37,14 @@ const void Empleado::mostrarInformacion() const {
     cout << "Dirección: " << direccion << endl;
     cout << "Fecha de nacimiento: " << fechaNacimiento << endl;
     cout << "Sexo: " << sexo << endl;
+    cout << "Cargo: " << cargo << endl;
+    cout << "Salario: " << salarioTotal << endl;
+}
+
+bool Empleado::operator==(const Empleado& otro) const {
+    return (nombre == otro.nombre && apellido == otro.apellido &&
+            direccion == otro.direccion && fechaNacimiento == otro.fechaNacimiento &&
+            sexo == otro.sexo);
 }
 
 const string &Empleado::getNombre() const {
@@ -59,6 +67,14 @@ const string &Empleado::getEmpresa() const {
     return empresa;
 }
 
-const char Empleado::getSexo() const {
+const char &Empleado::getSexo() const {
     return sexo;
+}
+
+const string &Empleado::getCargo() const {
+    return cargo;
+}
+
+const double &Empleado::getSalarioTotal() const {
+    return salarioTotal;
 }

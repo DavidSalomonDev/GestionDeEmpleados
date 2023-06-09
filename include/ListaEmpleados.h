@@ -3,15 +3,24 @@
 
 #include <vector>
 #include "Empleado.h"
-//#include "../include/Gerente.h"
 
 using namespace std;
 
 class ListaEmpleados {
 public:
-    void agregarEmpleado(const Empleado& empleado);
-    //void agregarEmpleado(const Gerente& gerente);
-    void mostrarEmpleados();
+    void addEmpleado(const Empleado &empleado);
+
+    void addEmpleadosFromFile(const string& nombreArchivo);
+
+    void getEmpleadoByInstance(const Empleado &empleado);
+
+    void getEmpleadoByFullName(string nombre, string apellido);
+
+    void getEmpleados();
+
+    void getEmpleadosByRole();
+
+    int size();
 
 private:
     vector<Empleado> empleados;
