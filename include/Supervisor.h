@@ -6,9 +6,10 @@
 
 using namespace std;
 
-class Supervisor : public Empleado {
+class Supervisor : public Empleado
+{
 public:
-    Supervisor(string nombre, string apellido, string direccion, string fechaNacimiento, char sexo);
+	Supervisor(string nombre, string apellido, string direccion, string fechaNacimiento, char sexo);
 };
 
-#endif SUPERVISOR_H
+#endif

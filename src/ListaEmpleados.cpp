@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cerrno>
+#include <cstring>
 #include <map>
 #include <fstream>
 #include <sstream>
@@ -14,19 +16,23 @@
 using namespace std;
 namespace fs = std::filesystem;
 
-void ListaEmpleados::addEmpleado(const Empleado &empleado) {
+void ListaEmpleados::addEmpleado(const Empleado &empleado)
+{
     empleados.push_back(empleado);
 }
 
-void ListaEmpleados::addEmpleadosFromFile(const string &nombreArchivo) {
+void ListaEmpleados::addEmpleadosFromFile(const string &nombreArchivo)
+{
     // Obtener la ruta de la carpeta data
-    fs::path raizPath = fs::current_path().parent_path();
+    fs::path raizPath = fs::current_path();
     fs::path archivoPath = raizPath / "data" / nombreArchivo;
 
     // Leer datos del archivo
     ifstream archivo(archivoPath);
-    if (!archivo) {
+    if (!archivo)
+    {
         cerr << "Error al abrir el archivo: " << nombreArchivo << endl;
+		cerr << "Mensaje de error: " << strerror(errno) << endl;
         return;
     }
 
@@ -35,7 +41,8 @@ void ListaEmpleados::addEmpleadosFromFile(const string &nombreArchivo) {
     // Encabezado del archivo CSV
     getline(archivo, linea);
 
-    while (getline(archivo, linea)) {
+    while (getline(archivo, linea))
+    {
         // Leer datos de una cadena de texto (la linea)
         istringstream iss(linea);
         string empNum, nombre, apellido, direccion, fechaNacimiento, cargo;
@@ -47,23 +54,31 @@ void ListaEmpleados::addEmpleadosFromFile(const string &nombreArchivo) {
         getline(iss, apellido, ',');
         getline(iss, direccion, ',');
         getline(iss, fechaNacimiento, ',');
-        iss >> sexo; // Formato char
+        iss >> sexo;  // Formato char
         iss.ignore(); // Cambiar formato en la nueva linea
         getline(iss, cargo, ',');
 
         Empleado *empleado = nullptr;
 
-        if (cargo == "Gerente") {
+        if (cargo == "Gerente")
+        {
             empleado = new Gerente(nombre, apellido, direccion, fechaNacimiento, sexo);
-        } else if (cargo == "Jefe de área") {
+        }
+        else if (cargo == "Jefe de área")
+        {
             empleado = new Jefe(nombre, apellido, direccion, fechaNacimiento, sexo);
-        } else if (cargo == "Supervisor") {
+        }
+        else if (cargo == "Supervisor")
+        {
             empleado = new Supervisor(nombre, apellido, direccion, fechaNacimiento, sexo);
-        } else if (cargo == "Técnico") {
+        }
+        else if (cargo == "Técnico")
+        {
             empleado = new Tecnico(nombre, apellido, direccion, fechaNacimiento, sexo);
         }
 
-        if (empleado != nullptr) {
+        if (empleado != nullptr)
+        {
             empleados.push_back(*empleado);
         }
     }
@@ -71,20 +86,25 @@ void ListaEmpleados::addEmpleadosFromFile(const string &nombreArchivo) {
     archivo.close();
 }
 
-void ListaEmpleados::getEmpleadoByInstance(const Empleado &empleado) {
-    for (const auto &e: empleados) {
-        if (e == empleado) {
+void ListaEmpleados::getEmpleadoByInstance(const Empleado &empleado)
+{
+    for (const auto &e : empleados)
+    {
+        if (e == empleado)
+        {
             e.mostrarInformacion();
             return;
         }
         cout << "El empleado no se ha encontrado" << endl;
-
     }
 }
 
-void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido) {
-    for (const auto &empleado: empleados) {
-        if (empleado.getNombre() == nombre && empleado.getApellido() == apellido) {
+void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido)
+{
+    for (const auto &empleado : empleados)
+    {
+        if (empleado.getNombre() == nombre && empleado.getApellido() == apellido)
+        {
             empleado.mostrarInformacion();
             return;
         }
@@ -92,12 +112,15 @@ void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido) {
     cout << "No se encontró ningún empleado con ese nombre y apellido." << endl;
 }
 
-vector<Empleado> ListaEmpleados::getEmpleados(){
+vector<Empleado> ListaEmpleados::getEmpleados()
+{
     return this->empleados;
 }
 
-void ListaEmpleados::getEmpleadosInfo() {
-    for (size_t i = 0; i < empleados.size(); i++) {
+void ListaEmpleados::getEmpleadosInfo()
+{
+    for (size_t i = 0; i < empleados.size(); i++)
+    {
         cout << "======================================" << endl;
         cout << "Empleado No. " << i + 1 << ":" << endl;
         empleados[i].mostrarInformacion();
@@ -106,12 +129,14 @@ void ListaEmpleados::getEmpleadosInfo() {
     }
 }
 
-void ListaEmpleados::getEmpleadosByRole() {
+void ListaEmpleados::getEmpleadosByRole()
+{
     // Mapa para almacenar la cuenta de empleados por rol
     map<string, int> conteoEmpleados;
 
     // Contar empleados por rol
-    for (const auto &empleado: empleados) {
+    for (const auto &empleado : empleados)
+    {
         string rol = empleado.getCargo();
         conteoEmpleados[rol]++;
     }
@@ -119,13 +144,14 @@ void ListaEmpleados::getEmpleadosByRole() {
     cout << "===================================" << endl;
 
     // Mostrar la cuenta de empleados por rol
-    for (const auto &conteo: conteoEmpleados) {
+    for (const auto &conteo : conteoEmpleados)
+    {
 
         cout << "Cargo: " << conteo.first << ", Cantidad: " << conteo.second << endl;
     }
-
 }
 
-int ListaEmpleados::size() {
+int ListaEmpleados::size()
+{
     return empleados.size();
 }

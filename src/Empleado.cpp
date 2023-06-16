@@ -3,8 +3,8 @@
 
 #include "../include/Empleado.h"
 
-
-Empleado::Empleado(string nombre, string apellido, string direccion, string fechaNacimiento, char sexo) {
+Empleado::Empleado(string nombre, string apellido, string direccion, string fechaNacimiento, char sexo)
+{
     setNombre(nombre);
     setApellido(apellido);
     setDireccion(direccion);
@@ -18,27 +18,33 @@ Empleado::Empleado(string nombre, string apellido, string direccion, string fech
     this->salarioNeto = this->salarioTotal - (this->isssLaboral + this->afpLaboral + this->isr);
 }
 
-void Empleado::setNombre(string n) {
+void Empleado::setNombre(string n)
+{
     nombre = n;
 }
 
-void Empleado::setApellido(string a) {
+void Empleado::setApellido(string a)
+{
     apellido = a;
 }
 
-void Empleado::setDireccion(string d) {
+void Empleado::setDireccion(string d)
+{
     direccion = d;
 }
 
-void Empleado::setFechaNacimiento(string f) {
+void Empleado::setFechaNacimiento(string f)
+{
     fechaNacimiento = f;
 }
 
-void Empleado::setSexo(char s) {
+void Empleado::setSexo(char s)
+{
     sexo = s;
 }
 
-const void Empleado::mostrarInformacion() const {
+const void Empleado::mostrarInformacion() const
+{
     cout << "Nombre completo: " << nombre << " " << apellido << endl;
     cout << "Dirección: " << direccion << endl;
     cout << "Fecha de nacimiento: " << fechaNacimiento << endl;
@@ -47,113 +53,141 @@ const void Empleado::mostrarInformacion() const {
     cout << "Salario: " << salarioTotal << endl;
 }
 
-bool Empleado::operator==(const Empleado &otro) const {
+bool Empleado::operator==(const Empleado &otro) const
+{
     return (nombre == otro.nombre && apellido == otro.apellido &&
             direccion == otro.direccion && fechaNacimiento == otro.fechaNacimiento &&
             sexo == otro.sexo);
 }
 
-const string &Empleado::getNombre() const {
+const string &Empleado::getNombre() const
+{
     return this->nombre;
 }
 
-const string &Empleado::getApellido() const {
+const string &Empleado::getApellido() const
+{
     return this->apellido;
 }
 
-const string &Empleado::getDireccion() const {
+const string &Empleado::getDireccion() const
+{
     return this->direccion;
 }
 
-const string &Empleado::getFechaNacimiento() const {
+const string &Empleado::getFechaNacimiento() const
+{
     return this->fechaNacimiento;
 }
 
-const string &Empleado::getEmpresa() const {
+const string &Empleado::getEmpresa() const
+{
     return this->empresa;
 }
 
-const char &Empleado::getSexo() const {
+const char &Empleado::getSexo() const
+{
     return this->sexo;
 }
 
-const string &Empleado::getCargo() const {
+const string &Empleado::getCargo() const
+{
     return this->cargo;
 }
 
-const double &Empleado::getSalarioTotal() const {
+const double &Empleado::getSalarioTotal() const
+{
     return this->salarioTotal;
 }
 
-const double &Empleado::getIsssLaboral() const {
+const double &Empleado::getIsssLaboral() const
+{
     return this->isssLaboral;
 }
 
-const double &Empleado::getIsssPatronal() const {
+const double &Empleado::getIsssPatronal() const
+{
     return this->isssPatronal;
 }
 
-const double &Empleado::getAfpLaboral() const {
+const double &Empleado::getAfpLaboral() const
+{
     return this->afpLaboral;
 }
 
-const double &Empleado::getAfpPatronal() const {
+const double &Empleado::getAfpPatronal() const
+{
     return this->afpPatronal;
 }
 
-const double &Empleado::getIsr() const {
+const double &Empleado::getIsr() const
+{
     return this->isr;
 }
 
-const double &Empleado::getSalarioNeto() const {
+const double &Empleado::getSalarioNeto() const
+{
     return this->salarioNeto;
 }
 
-void Empleado::calcularISSSLaboral() {
+void Empleado::calcularISSSLaboral()
+{
     double monto = this->salarioTotal;
-    if (monto >= 1000) {
+    if (monto >= 1000)
+    {
         this->isssLaboral = 30.0;
     }
     this->isssLaboral = monto * 0.03;
 }
 
-void Empleado::calcularISSSPatronal() {
+void Empleado::calcularISSSPatronal()
+{
     double monto = this->salarioTotal;
-    if (monto >= 1000) {
+    if (monto >= 1000)
+    {
         this->isssPatronal = 75.0;
     }
 
     this->isssPatronal = monto * 0.075;
 }
 
-void Empleado::calcularAFPPatronal() {
+void Empleado::calcularAFPPatronal()
+{
     double monto = this->salarioTotal;
     this->afpPatronal = monto * 0.0775;
 }
 
-void Empleado::calcularAFPLaboral() {
+void Empleado::calcularAFPLaboral()
+{
     double monto = this->salarioTotal;
     this->afpLaboral = monto * 0.0725;
 }
 
-void Empleado::calcularISR() {
+void Empleado::calcularISR()
+{
     double impuesto;
     double monto = this->salarioTotal - (this->isssLaboral + this->afpLaboral);
     double tramo1 = monto <= 472;
     double tramo2 = monto >= 472.01 && monto <= 895.24;
     double tramo3 = monto >= 895.25 && monto <= 2038.1;
     double tramo4 = monto >= 2038.11;
-    if (tramo1) {
+    if (tramo1)
+    {
         this->isr = 0;
-    } else if (tramo2) {
+    }
+    else if (tramo2)
+    {
         impuesto = (monto - 472.0) * 0.1 + 17.67;
         this->isr = impuesto;
-    } else if (tramo3) {
+    }
+    else if (tramo3)
+    {
         impuesto = (monto - 895.24) * 0.2 + 60.0;
         this->isr = impuesto;
-    } else if (tramo4) {
+    }
+    else if (tramo4)
+    {
         impuesto = (monto - 2038.1) * 0.3 + 288.57;
         this->isr = impuesto;
     }
 }
-

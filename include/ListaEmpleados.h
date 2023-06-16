@@ -6,11 +6,12 @@
 
 using namespace std;
 
-class ListaEmpleados {
+class ListaEmpleados
+{
 public:
     void addEmpleado(const Empleado &empleado);
 
-    void addEmpleadosFromFile(const string& nombreArchivo);
+    void addEmpleadosFromFile(const string &nombreArchivo);
 
     void getEmpleadoByInstance(const Empleado &empleado);
 
@@ -27,6 +28,5 @@ public:
 private:
     vector<Empleado> empleados;
 };
-
 
 #endif

@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class Gerente : public Empleado {
+class Gerente : public Empleado
+{
 public:
     Gerente(string nombre, string apellido, string direccion, string fechaNacimiento, char sexo);
 };
