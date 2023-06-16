@@ -24,6 +24,11 @@ public:
     void getEmpleadosByRole();
 
     int size();
+	
+	void sortByApellido();
+	
+	void sortBySalarioNeto();
+
 
 private:
     vector<Empleado> empleados;

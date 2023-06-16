@@ -36,11 +36,15 @@ Nuestro proyecto se enfoca en el rubro de una `Fábrica de bolsas y paquetes`
 2. Abre una terminal y navega hasta el directorio del proyecto.
 3. Compila los archivos fuente ejecutando el siguiente comando:
    ```shell
-   g++ src/*.cpp -o GestionDeEmpleados
+   g++ -std=c++17 src/*.cpp -o out/GestionDeEmpleados
 
 4. Ejecuta la aplicación con el siguiente comando:
 
    ```shell
-   ./GestionDeEmpleados
+   ./out/GestionDeEmpleados
+5. También puedes correrla en una sola línea así:
+
+   ```shell
+   g++ -std=c++17 src/*.cpp -o out/GestionDeEmpleados && ./out/GestionDeEmpleados
 
 Sigue las instrucciones en pantalla para interactuar con la aplicación y gestionar los empleados.
