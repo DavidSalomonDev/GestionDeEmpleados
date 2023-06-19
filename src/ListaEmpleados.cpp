@@ -85,6 +85,8 @@ void ListaEmpleados::getEmpleadoByInstance(const Empleado &empleado) {
 	}
 }
 
+
+
 void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido) {
 	for (const auto &empleado: empleados) {
 		if (empleado.getNombre() == nombre && empleado.getApellido() == apellido) {

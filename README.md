@@ -6,7 +6,7 @@
 
 - Martínez Valladares, David Salomón - MV12013
 - Flores Meza, Mauricio Eduardo - FM20031
-- Tejada Villatoro, Lilian Sofía - TV22008
+- Tejada Villatoro, LS - TV22008
 
 ## Descripción
 
