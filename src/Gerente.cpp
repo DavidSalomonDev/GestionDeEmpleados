@@ -17,4 +17,5 @@ Gerente::Gerente(string nombre, string apellido, string direccion, string fechaN
     calcularAFPLaboral();
     calcularAFPPatronal();
     calcularISR();
+	calcularSalarioNeto();
 }

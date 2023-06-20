@@ -39,7 +39,8 @@ public:
     void calcularISSSPatronal();
     void calcularAFPLaboral();
     void calcularAFPPatronal();
-    void calcularISR();
+	void calcularISR();
+	void calcularSalarioNeto();
 
 protected:
     string nombre;

@@ -17,4 +17,5 @@ Supervisor::Supervisor(string nombre, string apellido, string direccion, string 
     calcularAFPLaboral();
     calcularAFPPatronal();
     calcularISR();
+	calcularSalarioNeto();
 }

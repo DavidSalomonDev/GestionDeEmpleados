@@ -16,4 +16,5 @@ Jefe::Jefe(string nombre, string apellido, string direccion, string fechaNacimie
     calcularAFPLaboral();
     calcularAFPPatronal();
     calcularISR();
+	calcularSalarioNeto();
 }

@@ -86,7 +86,6 @@ void ListaEmpleados::getEmpleadoByInstance(const Empleado &empleado) {
 }
 
 
-
 void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido) {
 	for (const auto &empleado: empleados) {
 		if (empleado.getNombre() == nombre && empleado.getApellido() == apellido) {
@@ -97,7 +96,7 @@ void ListaEmpleados::getEmpleadoByFullName(string nombre, string apellido) {
 	cout << "No se encontró ningún empleado con ese nombre y apellido." << endl;
 }
 
-vector<Empleado> ListaEmpleados::getEmpleados() {
+vector <Empleado> ListaEmpleados::getEmpleados() {
 	return this->empleados;
 }
 
@@ -106,6 +105,19 @@ void ListaEmpleados::getEmpleadosInfo() {
 		cout << "======================================" << endl;
 		cout << "Empleado No. " << i + 1 << ":" << endl;
 		empleados[i].mostrarInformacion();
+		cout << "======================================" << endl;
+		cout << flush;
+	}
+}
+
+void ListaEmpleados::getEmpleadosByFullName() {
+	for (size_t i = 0; i < empleados.size(); i++) {
+		cout << "======================================" << endl;
+		cout << "Empleado No. " << i + 1 << ": ";
+		cout << empleados[i].getApellido() << ", " << empleados[i].getNombre() << endl;
+		cout << "Cargo: " << empleados[i].getCargo() << endl;
+		cout << "Salario Neto: "<< empleados[i].getSalarioNeto() << endl;
+		
 		cout << "======================================" << endl;
 		cout << flush;
 	}
@@ -140,8 +152,14 @@ void ListaEmpleados::sortByApellido() {
 	});
 }
 
-void ListaEmpleados::sortBySalarioNeto() {
-	sort(empleados.begin(), empleados.end(), [](const Empleado &emp1, const Empleado &emp2) {
-		return emp1.getSalarioNeto() < emp2.getSalarioNeto();
-	});
+void ListaEmpleados::sortBySalarioNeto(bool ordenAscendente) {
+	if (ordenAscendente) {
+		sort(empleados.begin(), empleados.end(), [](const Empleado& emp1, const Empleado& emp2) {
+			return emp1.getSalarioNeto() < emp2.getSalarioNeto();
+		});
+	} else {
+		sort(empleados.begin(), empleados.end(), [](const Empleado& emp1, const Empleado& emp2) {
+			return emp1.getSalarioNeto() > emp2.getSalarioNeto();
+		});
+	}
 }

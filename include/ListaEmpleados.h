@@ -22,12 +22,14 @@ public:
     void getEmpleadosInfo();
 
     void getEmpleadosByRole();
+	
+	void getEmpleadosByFullName();
 
     int size();
 	
 	void sortByApellido();
 	
-	void sortBySalarioNeto();
+	void sortBySalarioNeto(bool ordenAscendente);
 
 
 private:

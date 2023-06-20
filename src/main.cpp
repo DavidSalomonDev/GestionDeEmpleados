@@ -16,11 +16,14 @@ namespace fs = filesystem;
 int main() {
 	ListaEmpleados listaEmpleados;
 	int opcion;
-	bool opcionValida = false;
 	do {
-		cout << "Bienvenido al sistema de gestión de empleados de Bolsas y Paquetes, SA de CV" << endl;
+		bool opcionValida = false;
 		cout << "\n";
-		cout << "======= Menú de Opciones =======" << endl;
+		cout << "+----------------------------------------------------------------------------+" << endl;
+		cout << "Bienvenido al sistema de gestión de empleados de Bolsas y Paquetes, SA de CV" << endl;
+		cout << "+----------------------------------------------------------------------------+" << endl;
+		cout << "\n";
+		cout << "============ Menú de Opciones ============" << endl;
 		cout << "1. Agregar nuevo empleado" << endl;
 		cout << "2. Ingresar empleados desde archivo CSV" << endl;
 		cout << "3. Mostrar a todos los empleados" << endl;
@@ -76,7 +79,7 @@ int main() {
 					}
 					
 				}
-				
+				cout << "+----------------------------------------------------------------------------+" << endl;
 				cout << "Ingrese el nombre del nuevo empleado: ";
 				cin.ignore();
 				getline(cin, nombre);
@@ -121,12 +124,26 @@ int main() {
 			}
 			case 4: {
 				listaEmpleados.sortByApellido();
-				listaEmpleados.getEmpleadosInfo();
+				listaEmpleados.getEmpleadosByFullName();
 				break;
 			}
 			case 5: {
-				listaEmpleados.sortBySalarioNeto();
-				listaEmpleados.getEmpleadosInfo();
+				bool ordenAscendente;
+				cout << "Ingrese el tipo de orden: " << endl;
+				cout << "1. Menor a mayor" << endl;
+				cout << "2. Mayor a menor" << endl;
+				int tipoOrden;
+				cin >> tipoOrden;
+				if (tipoOrden == 1) {
+					ordenAscendente = true;
+				} else if (tipoOrden == 2) {
+					ordenAscendente = false;
+				} else {
+					cout << "Tipo de orden inválido. Se utilizará orden ascendente por defecto." << endl;
+					ordenAscendente = true;
+				}
+				listaEmpleados.sortBySalarioNeto(ordenAscendente);
+				listaEmpleados.getEmpleadosByFullName();
 				break;
 			}
 			case 6: {
@@ -136,6 +153,7 @@ int main() {
 			
 			case 7: {
 				cout << "Saliendo del programa..." << endl;
+				cout << "Bye-bye..." << endl;
 				break;
 			}
 			default: {
